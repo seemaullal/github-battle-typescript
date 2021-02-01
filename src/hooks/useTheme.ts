@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import ThemeContext from '../contexts/theme_context';
 
 export function useTheme() {
-  type themeType = 'light' | 'dark';
-  const [theme, setTheme] = useState<themeType>('light');
+  const { theme, setTheme } = useContext(ThemeContext);
+  if (!theme) {
+    throw new Error(
+      'theme must be set using ThemeContext.Provider  before using'
+    );
+  }
   const toggleTheme = () =>
     setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
 
-  return { theme, toggleTheme };
+  return { toggleTheme, isLightMode: theme === 'light' };
 }

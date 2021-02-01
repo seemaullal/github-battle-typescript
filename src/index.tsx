@@ -1,16 +1,19 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { useTheme } from "./hooks/useTheme";
-import "./styles.scss";
+import { useState } from 'react';
+import * as ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom';
+import ThemeContext, { themeType } from './contexts/theme_context';
+import Navigation from './components/navigation';
+import './styles.scss';
 
 function App() {
-  const { theme, toggleTheme } = useTheme();
+  const [theme, setTheme] = useState<themeType>('light');
   return (
-    <div className={theme}>
-      <button onClick={toggleTheme}>Toggle theme</button>
-      <div>Github battle app</div>
-    </div>
+    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+      <div className={theme}>
+        <Navigation />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
