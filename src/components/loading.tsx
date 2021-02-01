@@ -11,7 +11,7 @@ const styles = {
   } as CSSProperties,
 };
 
-function Loading({
+export default function Loading({
   text = 'Loading',
   speed = 300,
 }: {

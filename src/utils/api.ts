@@ -1,11 +1,17 @@
 export interface User {
+  login: string;
+  avatar_url: string;
   message?: string;
   followers: number;
 }
 
 export interface Repository {
   name: string;
+  owner: User;
+  html_url: string;
   stargazers_count: number;
+  forks: number;
+  open_issues: number;
 }
 
 export interface Player {
