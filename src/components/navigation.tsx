@@ -5,11 +5,7 @@ export default function Navigation() {
   const buttonIcon = isLightMode ? '🔦' : '💡';
   return (
     <nav>
-      <button
-        style={{ fontSize: 30 }}
-        className="btn-clear"
-        onClick={toggleTheme}
-      >
+      <button className="theme-btn" onClick={toggleTheme}>
         {buttonIcon}
       </button>
     </nav>

@@ -25,6 +25,12 @@ li {
   padding: 50px;
 }
 
+.theme-button {
+  border: none;
+  background: transparent;
+  font-size: 30;
+}
+
 .dark {
   color: #dadada;
   background: #1c2022;
@@ -35,11 +41,6 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.btn-clear {
-  border: none;
-  background: transparent;
 }
 
 .nav-link {
