@@ -9,7 +9,8 @@
     "moduleResolution": "node",
     "target": "ES2016",
     "allowJs": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./src/**/*"]
 }
