@@ -1,3 +1,5 @@
+$highlighted-link-color: magenta;
+
 html,
 body,
 #app {
@@ -199,6 +201,10 @@ li {
 .player-inputs button {
   flex: 1;
   margin-left: 10px;
+}
+
+.highlighted-link {
+  color: $highlighted-link-color;
 }
 
 .btn {
