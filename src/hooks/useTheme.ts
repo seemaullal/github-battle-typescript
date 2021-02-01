@@ -9,7 +9,7 @@ export function useTheme() {
     );
   }
   const toggleTheme = useCallback(
-    () => setTheme((theme) => (theme === 'light' ? 'dark' : 'light')),
+    () => setTheme(theme => (theme === 'light' ? 'dark' : 'light')),
     []
   );
 
