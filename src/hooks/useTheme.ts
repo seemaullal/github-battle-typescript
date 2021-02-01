@@ -13,5 +13,5 @@ export function useTheme() {
     []
   );
 
-  return { toggleTheme, isLightMode: theme === 'light' };
+  return { toggleTheme, theme };
 }

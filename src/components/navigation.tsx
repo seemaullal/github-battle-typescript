@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { CSSProperties } from 'react';
 
 export default function Navigation() {
-  const { isLightMode, toggleTheme } = useTheme();
-  const buttonIcon = isLightMode ? '🔦' : '💡';
+  const { theme, toggleTheme } = useTheme();
+  const buttonIcon = theme === 'light' ? '🔦' : '💡';
   const activeStyle: CSSProperties = { color: 'magenta' };
   return (
     <nav className="row space-between">
