@@ -1,8 +1,15 @@
+import { params } from './secrets';
+
 export interface User {
   login: string;
   avatar_url: string;
   message?: string;
   followers: number;
+  name: string | null;
+  location: string | null;
+  following: number;
+  company: string | null;
+  html_url: string;
 }
 
 export interface Repository {
@@ -28,7 +35,7 @@ function getErrorMsg(message: string, username: string): string {
 }
 
 function getProfile(username: string): Promise<User> {
-  return fetch(`https://api.github.com/users/${username}`)
+  return fetch(`https://api.github.com/users/${username}${params}`)
     .then(result => result.json())
     .then((profile: User) => {
       if (profile.message) {
@@ -40,7 +47,9 @@ function getProfile(username: string): Promise<User> {
 }
 
 function getRepos(username: string): Promise<Repository[]> {
-  return fetch(`https://api.github.com/users/${username}/repos?per_page=100`)
+  return fetch(
+    `https://api.github.com/users/${username}/repos${params}&per_page=100`
+  )
     .then(res => res.json())
     .then(repos => {
       if (repos.message) {
