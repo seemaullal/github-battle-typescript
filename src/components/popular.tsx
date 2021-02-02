@@ -33,7 +33,7 @@ function LangaugesNav({
       {languages.map(language => (
         <li key={language}>
           <button
-            className="btn-clear nav-link"
+            className="clear-btn nav-link"
             style={
               language === selected ? { color: 'rgb(187, 46, 31)' } : undefined
             }

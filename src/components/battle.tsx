@@ -102,7 +102,7 @@ function PlayerPreview({ username, onReset, label }: PlayerPreviewProps) {
             {username}
           </a>
         </div>
-        <button className="btn-clear flex-center" onClick={onReset}>
+        <button className="clear-btn flex-center" onClick={onReset}>
           <FaTimesCircle color="rgb(194, 57, 42)" size={26} />
         </button>
       </div>
