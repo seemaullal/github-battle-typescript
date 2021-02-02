@@ -53,7 +53,7 @@ function ProfileList({ profile }: { profile: User }) {
 type ResultReducerAction =
   | { type: 'loading' }
   | { type: 'error'; error: string }
-  | { type: 'winner'; winner: Player | null; loser: Player | null };
+  | { type: 'success'; winner: Player | null; loser: Player | null };
 
 type ResultState = {
   winner: null | Player;
@@ -67,7 +67,7 @@ function resultsReducer(
   action: ResultReducerAction
 ): ResultState {
   switch (action.type) {
-    case 'winner':
+    case 'success':
       return {
         winner: action.winner,
         loser: action.loser,
@@ -102,10 +102,10 @@ export default function Results() {
   const { search } = useLocation();
   const { playerOne, playerTwo } = queryString.parse(search);
   useEffect(() => {
-    battle([playerOne as string, playerTwo as string])
+    battle([playerOne, playerTwo] as [string, string])
       .then(players => {
         dispatch({
-          type: 'winner',
+          type: 'success',
           winner: players[0],
           loser: players[1],
         });
